@@ -1,5 +1,5 @@
 # ARE
-Advanced REader - A plain text view in C for linux
+Advanced REader - A plain text reader in C for linux
 
 ### Compile
 ```
