@@ -74,12 +74,12 @@ int hlp()
             "   -e,  --show-ends         Display $ at end of each line                     \n"
             "   -sn  --single-number     Print total line number at the start              \n"
             "   -h   --help              Display this help and exit                        \n"
-            "   -v   --version           Output version information and exit               \n"
+            "   -v   --version           Output version information and exit               \n\n"
             "Examples:                                                                     \n"
             "    are ~/text.txt -sn              Read text.txt without printing the lines  \n"
-            "    are /etc/apt/sources.list -r    Start program in interactive mode         \n"
+            "    are /etc/apt/sources.list -r    Read normally                             \n"
             "                                                                              \n"
-	       "Documentation can be found on github.com/ikozyris/yocto/wiki                   \n");
+	       "Documentation can be found on github.com/ikozyris/are/wiki                   \n");
     return 0;
 }
 
