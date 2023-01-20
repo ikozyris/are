@@ -10,7 +10,7 @@ CFLAGS  =  -Wall -Wextra
 TARGET = are
 
 all:
-  $(CC) $(CFLAGS) main.c -o $(TARGET)
+	$(CC) $(CFLAGS) main.c -o $(TARGET)
 
 clean:
-  $(RM) $(TARGET)
+	$(RM) $(TARGET)
