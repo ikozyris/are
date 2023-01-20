@@ -6,8 +6,6 @@
     size_t lines = 1;
     int ch, indx, m;
     char fname[20];
-    
-
 
 int e()
 {
@@ -67,8 +65,8 @@ int r()
 }
 
 int hlp()
-{  
-    printf( "Usage: are [FILE]... [OPTION]...                                              \n"
+{
+    printf( "Usage: are [OPTION]... [FILE]...                                              \n"
             "   -r   --read              Read file                                         \n"
             "   -rl  --read-lines        Read with the line number before each line        \n"
             "   -e,  --show-ends         Display $ at end of each line                     \n"
@@ -76,10 +74,10 @@ int hlp()
             "   -h   --help              Display this help and exit                        \n"
             "   -v   --version           Output version information and exit               \n\n"
             "Examples:                                                                     \n"
-            "    are ~/text.txt -sn              Read text.txt without printing the lines  \n"
-            "    are /etc/apt/sources.list -r    Read normally                             \n"
+            "    are -sn ~/text.txt              Read text.txt without printing the lines  \n"
+            "    are -r /etc/apt/sources.list    Read normally                             \n"
             "                                                                              \n"
-	       "Documentation can be found on github.com/ikozyris/are/wiki                   \n");
+            "Documentation can be found on github.com/ikozyris/are/wiki                   \n");
     return 0;
 }
 
@@ -115,7 +113,7 @@ int main(int argc, char *argv[])
     if (argc == 2)
     {
         if (strcmp("-v", argv[1]) == 0 || strcmp("--version", argv[1]) == 0) {
-            printf("ARE - Advanced REader Version 0.1 Created by ikozyris and gkozyris\nLicensed under Gnu General Public License v3\nSource code available at: http://github.com/ikozyris/are/ \n");
+            printf("ARE - Advanced REader Version 0.2 Created by ikozyris and gkozyris\nLicensed under Gnu General Public License v3\nSource code available at: http://github.com/ikozyris/are/ \n");
             return 0;
         }
 
@@ -124,13 +122,13 @@ int main(int argc, char *argv[])
 	        return 0;
 	    }
 
-        else printf("Invalid argument %s", argv[1]);
+        else printf("Invalid argument %s\n", argv[1]);
     }
 
     if (argc == 3)
     {
-        strcpy(fname, argv[1]);
-        strcpy(option, argv[2]);
+        strcpy(fname, argv[2]);
+        strcpy(option, argv[1]);
 
         if (strcmp("-sn", option) == 0 || strcmp("--single-number", option) == 0) {
             sn();
@@ -155,3 +153,4 @@ int main(int argc, char *argv[])
         else hlp();
     }
 }
+
