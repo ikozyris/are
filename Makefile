@@ -11,6 +11,14 @@ TARGET = are
 
 all:
 	$(CC) $(CFLAGS) main.c -o $(TARGET)
+	cp $(TARGET) /usr/local/bin/
+	$(RM) $(TARGET)
+
+build:
+	$(CC) $(CFLAGS) main.c -o $(TARGET)
+
+install:
+	cp $(TARGET) /usr/local/bin/
 
 clean:
 	$(RM) $(TARGET)
