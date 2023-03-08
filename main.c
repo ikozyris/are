@@ -123,29 +123,33 @@ int main(int argc, char *argv[])
     }
 
     if (argc == 3) {
-        strcpy(fname, argv[2]);
-        strcpy(option, argv[1]);
+        if (*argv[1] == *"-") {
+            strcpy(fname, argv[2]);
+            strcpy(option, argv[1]);
 
-        if (strcmp("-sn", option) == 0 || strcmp("--single-number", option) == 0) {
-            sn();
-            return 0;
-        }
+            if (strcmp("-sn", option) == 0 || strcmp("--single-number", option) == 0) {
+                sn();
+                return 0;
+            }
 
-        if (strcmp("-e", option) == 0 || strcmp("--show-ends", option) == 0) {
-            e();
-            return 0;
-        }
+            if (strcmp("-e", option) == 0 || strcmp("--show-ends", option) == 0) {
+                e();
+                return 0;
+            }
 
-        if (strcmp("-rl", option) == 0 || strcmp("--read-lines", option) == 0) {
-            rl();
-            return 0;
-        }
+            if (strcmp("-rl", option) == 0 || strcmp("--read-lines", option) == 0) {
+                rl();
+                return 0;
+            }
 
-        if (strcmp("-r", option) == 0 || strcmp("--read", option) == 0) {
-            r();
-            return 0;
-        }
+            if (strcmp("-r", option) == 0 || strcmp("--read", option) == 0) {
+                r();
+                return 0;
+            }
 
-        else hlp();
+            else printf("Invalid argument %s\n", argv[1]);
+
+        } else hlp();
     }
+}
 }
