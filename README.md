@@ -1,3 +1,4 @@
+[![Makefile CI](https://github.com/ikozyris/are/actions/workflows/makefile.yml/badge.svg)](https://github.com/ikozyris/are/actions/workflows/makefile.yml)
 # ARE
 Advanced REader - A plain text reader in C for linux
 
