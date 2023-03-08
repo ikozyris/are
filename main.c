@@ -5,22 +5,19 @@
     char option[20];
     size_t lines = 1;
     int ch, indx, m;
-    char fname[20];
+    char fname[38];
 
 int e()
 {
     fp = fopen(fname,"r");
-    if(fp  == NULL)
-    {
+    if(fp  == NULL) {
         perror("fopen(): ");
         return -1;
     }
-    while ((ch = getc(fp)) != EOF)
-    {
+    while ((ch = getc(fp)) != EOF) {
         if(ch=='\n')
             printf("$");
         putc(ch, stdout);
-
     }
     printf("$\n");
     fclose(fp);
@@ -30,17 +27,15 @@ int e()
 int rl()
 {
     fp = fopen(fname,"r");
-    if(fp  == NULL)
-    {
+    if(fp  == NULL) {
         perror("fopen(): ");
+        printf("%s", fname);
         return -1;
     }
     printf ("%03zu |", lines++);
-    while ((ch = getc(fp)) != EOF)
-    {
+    while ((ch = getc(fp)) != EOF) {
         putchar(ch);
-        if (ch == '\n')
-        {
+        if (ch == '\n') {
             printf ("%03zu |", lines++);
         }
     }
@@ -52,8 +47,7 @@ int rl()
 int r()
 {
     fp = fopen(fname,"r");
-    if(fp  == NULL)
-    {
+    if(fp  == NULL) {
         perror("fopen(): ");
         return -1;
     }
@@ -64,7 +58,7 @@ int r()
     return 0;
 }
 
-int hlp()
+void hlp()
 {
     printf( "Usage: are [OPTION]... [FILE]...                                              \n"
             "   -r   --read              Read file                                         \n"
@@ -77,22 +71,17 @@ int hlp()
             "    are -sn ~/text.txt              Read text.txt without printing the lines  \n"
             "    are -r /etc/apt/sources.list    Read normally                             \n"
             "                                                                              \n"
-            "Documentation can be found on github.com/ikozyris/are/wiki                   \n");
-    return 0;
+            "Documentation can be found on github.com/ikozyris/are/wiki                    \n");
 }
 
 int sn()
 {
     fp = fopen(fname,"r");
-    if(fp  == NULL)
-    {
+    if(fp  == NULL) {
         perror("fopen(): ");
         return -1;
     }
-    else
-    {
-    while((ch=fgetc(fp))!=EOF)//getting number of lines
-    {
+    while((ch = fgetc(fp))!=EOF) {
         if(ch=='\n')
             lines++;
     }
@@ -102,31 +91,38 @@ int sn()
     while ((ch = getc(fp)) != EOF)
         putc(ch, stdout);
     fclose(fp);
-    }
     printf("\n");
     return 0;
 }
 
 int main(int argc, char *argv[])
 {
-
-    if (argc == 2)
-    {
-        if (strcmp("-v", argv[1]) == 0 || strcmp("--version", argv[1]) == 0) {
-            printf("ARE - Advanced REader Version 0.2 Created by ikozyris and gkozyris\nLicensed under Gnu General Public License v3\nSource code available at: http://github.com/ikozyris/are/ \n");
-            return 0;
+    if (argc == 1) {
+        while ((ch = getchar())) {
+            putc(ch, stdout);
         }
-
-	    if (strcmp("-h", argv[1]) == 0 || strcmp("--help", argv[1]) == 0) {
-            hlp();
-	        return 0;
-	    }
-
-        else printf("Invalid argument %s\n", argv[1]);
     }
 
-    if (argc == 3)
-    {
+    if (argc == 2) {
+        if (*argv[1] == *"-") {
+            if (strcmp("-v", argv[1]) == 0 || strcmp("--version", argv[1]) == 0) {
+                printf("ARE - Advanced REader Version 0.3 Created by ikozyris and gkozyris\nLicensed under the GNU General Public License v3\nSource code available at: http://github.com/ikozyris/are/ \n");
+                return 0;
+            }   
+            if (strcmp("-h", argv[1]) == 0 || strcmp("--help", argv[1]) == 0) {
+                hlp();
+                return 0;
+            } else printf("Invalid argument %s\n", argv[1]);
+        
+        } else {
+            printf("%s\n",argv[1]);
+            fflush(stdout);
+            strcpy(fname, argv[1]);
+            r();
+        }
+    }
+
+    if (argc == 3) {
         strcpy(fname, argv[2]);
         strcpy(option, argv[1]);
 
@@ -153,4 +149,3 @@ int main(int argc, char *argv[])
         else hlp();
     }
 }
-
