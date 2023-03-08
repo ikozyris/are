@@ -115,8 +115,6 @@ int main(int argc, char *argv[])
             } else printf("Invalid argument %s\n", argv[1]);
         
         } else {
-            printf("%s\n",argv[1]);
-            fflush(stdout);
             strcpy(fname, argv[1]);
             r();
         }
