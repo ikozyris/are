@@ -3,14 +3,14 @@ name: Makefile CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: /
     steps:
     - uses: actions/checkout@v3
 
@@ -25,3 +25,4 @@ jobs:
       with:
         name: output
         path: out/are
+        if-no-files-found: error
