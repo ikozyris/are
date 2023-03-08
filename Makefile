@@ -14,6 +14,9 @@ all:
 	cp $(TARGET) /usr/local/bin/
 	$(RM) $(TARGET)
 
+depends:
+	sudo apt install libc-dev gcc
+
 build:
 	$(CC) $(CFLAGS) main.c -o $(TARGET)
 
