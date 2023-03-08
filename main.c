@@ -107,7 +107,7 @@ int main(int argc, char *argv[])
     if (argc == 2) {
         if (*argv[1] == *"-") {
             if (strcmp("-v", argv[1]) == 0 || strcmp("--version", argv[1]) == 0) {
-                printf("ARE - Advanced REader Version 0.3 Created by ikozyris and gkozyris\nLicensed under the GNU General Public License v3\nSource code available at: http://github.com/ikozyris/are/ \n");
+                printf("ARE - Advanced REader Version 0.3.1 Created by ikozyris and gkozyris\nLicensed under the GNU General Public License v3\nSource code available at: http://github.com/ikozyris/are/ \n");
                 return 0;
             }   
             if (strcmp("-h", argv[1]) == 0 || strcmp("--help", argv[1]) == 0) {
