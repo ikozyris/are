@@ -69,8 +69,9 @@ void hlp()
             "   -v   --version           Output version information and exit               \n\n"
             "Examples:                                                                     \n"
             "    are -sn ~/text.txt              Read text.txt without printing the lines  \n"
-            "    are -r /etc/apt/sources.list    Read normally                             \n"
-            "                                                                              \n"
+            "    are -r /etc/apt/sources.list    Read with lines numbering                 \n"
+            "    are text.txt                    Read normally                             \n"
+            "    are                             Forward stdin to stdout (echoing)         \n"
             "Documentation can be found on github.com/ikozyris/are/wiki                    \n");
 }
 
